@@ -10,8 +10,7 @@ env:
   PORT: ${{ secrets.PORT }}
   GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
   GCP_REGION: ${{ secrets.GCP_REGION }}
-#  IMAGE: asia.gcr.io/${{ secrets.GCP_PROJECT_ID }}:${{ github.sha }}
-  IMAGE: 'test-cloud-run'
+  IMAGE: gcr.io/${{ secrets.GCP_PROJECT_ID }}:${{ github.sha }}
 
 jobs:
   deploy:
@@ -30,9 +29,6 @@ jobs:
       # gcloud コマンドの設定
       - name: 'Set up Cloud SDK'
         uses: 'google-github-actions/setup-gcloud@v0'
-
-      - name: 'Use gcloud CLI'
-        run: 'gcloud info'
 
       # Docker に gcloud コマンドの Credential を使わせる
       - name: 'Configure docker to use the gcloud cli'
