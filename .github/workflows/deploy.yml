@@ -6,11 +6,11 @@ on:
       - main
 
 env:
-  SERVICE_NAME: "test-cloudrun"
+  SERVICE_NAME: 'test-cloudrun'
   PORT: ${{ secrets.PORT }}
   GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
   GCP_REGION: ${{ secrets.GCP_REGION }}
-  IMAGE: asia.gcr.io/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.SERVICE_NAME }}:${{ github.sha }}
+  IMAGE: asia.gcr.io/${{ secrets.GCP_PROJECT_ID }}:${{ github.sha }}
 
 
 jobs:
@@ -37,7 +37,7 @@ jobs:
       
       # Docker イメージを作成
       - name: 'Build a docker image'
-        run: docker build -t $IMAGE
+        run: docker build -t $IMAGE .
 
       # Docker イメージを Container Registry に Push
       - name: 'Push the docker image to Container Registry'
