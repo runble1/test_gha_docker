@@ -12,6 +12,7 @@ env:
   GCP_REGION: ${{ secrets.GCP_REGION }}
 #  IMAGE: asia.gcr.io/${{ secrets.GCP_PROJECT_ID }}:${{ github.sha }}
   IMAGE: 'test-cloud-run'
+  GCP_CREDENTIALS: ${{ secrets.GCP_CREDENTIALS }}
 
 jobs:
   deploy:
