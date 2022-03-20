@@ -12,7 +12,7 @@ env:
   GCP_PROJECT_ID: 'be-nishiyama-wataru'
   GCP_REGION: ${{ secrets.GCP_REGION }}
   #IMAGE: gcr.io/${{ secrets.GCP_PROJECT_ID }}/test:${{ github.sha }}
-  IMAGE: gcr.io/sec-monitoring-301618/test:latest
+  IMAGE: gcr.io/be-nishiyama-wataru/test:latest
 
 jobs:
   deploy:
