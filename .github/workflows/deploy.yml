@@ -6,10 +6,9 @@ on:
       - main
 
 env:
-  SERVICE_NAME: 'test-cloudrun'
-  PORT: ${{ secrets.PORT }}
-  #GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
-  GCP_PROJECT_ID: 'be-nishiyama-wataru'
+  SERVICE_NAME: test-cloudrun
+  PORT: 80
+  GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
   #GCP_REGION: ${{ secrets.GCP_REGION }}
   GCP_REGION: us-central1
   #IMAGE: gcr.io/${{ secrets.GCP_PROJECT_ID }}/test:${{ github.sha }}
@@ -37,15 +36,6 @@ jobs:
       - name: 'Configure docker to use the gcloud cli'
         run: gcloud auth configure-docker --quiet
 
-      - name: port
-        run: echo $PORT
-
-      - name: GCP_PROJECT_ID
-        run: echo $GCP_PROJECT_ID
-
-      - name: IMAGE
-        run: echo $IMAGE
-      
       # Docker イメージを作成
       - name: 'Build a docker image'
         run: docker build -t $IMAGE .
