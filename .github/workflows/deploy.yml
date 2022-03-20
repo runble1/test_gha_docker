@@ -12,7 +12,6 @@ env:
   GCP_REGION: ${{ secrets.GCP_REGION }}
 #  IMAGE: asia.gcr.io/${{ secrets.GCP_PROJECT_ID }}:${{ github.sha }}
   IMAGE: 'test-cloud-run'
-  GCP_CREDENTIALS: ${{ secrets.GCP_CREDENTIALS }}
 
 jobs:
   deploy:
@@ -22,7 +21,7 @@ jobs:
       - name: 'Checkout the repository'
         uses: actions/checkout@v2
 
-      # GCP との認証
+      # GCP 認証
       - id: 'auth'
         uses: 'google-github-actions/auth@v0'
         with:
@@ -31,6 +30,9 @@ jobs:
       # gcloud コマンドの設定
       - name: 'Set up Cloud SDK'
         uses: 'google-github-actions/setup-gcloud@v0'
+
+      - name: 'Use gcloud CLI'
+        run: 'gcloud info'
 
       # Docker に gcloud コマンドの Credential を使わせる
       - name: 'Configure docker to use the gcloud cli'
