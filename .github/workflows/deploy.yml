@@ -10,7 +10,8 @@ env:
   PORT: ${{ secrets.PORT }}
   #GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
   GCP_PROJECT_ID: 'be-nishiyama-wataru'
-  GCP_REGION: ${{ secrets.GCP_REGION }}
+  #GCP_REGION: ${{ secrets.GCP_REGION }}
+  GCP_REGION: us-central1
   #IMAGE: gcr.io/${{ secrets.GCP_PROJECT_ID }}/test:${{ github.sha }}
   IMAGE: gcr.io/be-nishiyama-wataru/test:latest
 
