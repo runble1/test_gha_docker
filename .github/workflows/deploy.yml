@@ -34,7 +34,13 @@ jobs:
       - name: 'Configure docker to use the gcloud cli'
         run: gcloud auth configure-docker --quiet
 
-      - name: echo
+      - name: port
+        run: echo $PORT
+
+      - name: GCP_PROJECT_ID
+        run: $GCP_PROJECT_ID
+
+      - name: IMAGE
         run: echo $IMAGE
       
       # Docker イメージを作成
