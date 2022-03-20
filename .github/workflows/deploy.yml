@@ -13,7 +13,7 @@ env:
   #GCP_REGION: ${{ secrets.GCP_REGION }}
   GCP_REGION: us-central1
   #IMAGE: gcr.io/${{ secrets.GCP_PROJECT_ID }}/test:${{ github.sha }}
-  IMAGE: gcr.io/be-nishiyama-wataru/test:latest
+  IMAGE: gcr.io/${{ secrets.GCP_PROJECT_ID }}/test:latest
 
 jobs:
   deploy:
