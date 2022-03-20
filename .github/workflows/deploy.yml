@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # リポジトリをチェックアウト
-      - name: Checkout the repository
+      - name: 'Checkout the repository'
         uses: actions/checkout@v2
 
       # GCP との認証
@@ -31,5 +31,26 @@ jobs:
       - name: 'Set up Cloud SDK'
         uses: 'google-github-actions/setup-gcloud@v0'
 
-      - name: 'Use gcloud CLI'
-        run: 'gcloud info'
+      # Docker に gcloud コマンドの Credential を使わせる
+      - name: 'Configure docker to use the gcloud cli'
+        run: gcloud auth configure-docker --quiet
+      
+      # Docker イメージを作成
+      - name: 'Build a docker image'
+        run: docker build -t $IMAGE .
+
+      # Docker イメージを Container Registry に Push
+      - name: 'Push the docker image to Container Registry'
+        run: docker push $IMAGE
+
+      # Container Registry から Cloud Run へデプロイ
+      - name: 'Deploy to Cloud Run'
+        run: |
+            gcloud run deploy $SERVICE_NAME \
+              --image $IMAGE \
+              --port $PORT \
+              --project $GCP_PROJECT_ID \
+              --region $GCP_REGION \
+              --platform=managed \
+              --allow-unauthenticated \
+              --quiet
