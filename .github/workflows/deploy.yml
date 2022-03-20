@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  SERVICE_NAME: ${{ secrets.SERVICE_NAME }}
+  SERVICE_NAME: test-cloudrun
   PORT: ${{ secrets.PORT }}
   GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
   GCP_REGION: ${{ secrets.GCP_REGION }}
