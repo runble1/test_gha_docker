@@ -8,7 +8,8 @@ on:
 env:
   SERVICE_NAME: 'test-cloudrun'
   PORT: ${{ secrets.PORT }}
-  GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+  #GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+  GCP_PROJECT_ID: 'be-nishiyama-wataru'
   GCP_REGION: ${{ secrets.GCP_REGION }}
   IMAGE: gcr.io/${{ secrets.GCP_PROJECT_ID }}:${{ github.sha }}
 
