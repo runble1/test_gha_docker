@@ -39,7 +39,7 @@ jobs:
         run: echo $PORT
 
       - name: GCP_PROJECT_ID
-        run: $GCP_PROJECT_ID
+        run: echo $GCP_PROJECT_ID
 
       - name: IMAGE
         run: echo $IMAGE
