@@ -33,6 +33,9 @@ jobs:
       # Docker に gcloud コマンドの Credential を使わせる
       - name: 'Configure docker to use the gcloud cli'
         run: gcloud auth configure-docker --quiet
+
+      - name: echo
+        run: echo $IMAGE
       
       # Docker イメージを作成
       - name: 'Build a docker image'
