@@ -11,7 +11,7 @@ env:
   GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
   #GCP_REGION: ${{ secrets.GCP_REGION }}
   GCP_REGION: us-central1
-  IMAGE: gcr.io/${{ secrets.GCP_PROJECT_ID }}/test-cloudrun:${{ github.sha }}
+  IMAGE: gcr.io/${{ secrets.GCP_PROJECT_ID }}/$SERVICE_NAME:${{ github.sha }}
   #IMAGE: gcr.io/${{ secrets.GCP_PROJECT_ID }}/test-cloudrun:latest
 
 jobs:
