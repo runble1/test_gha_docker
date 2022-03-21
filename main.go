@@ -18,7 +18,7 @@ func main() {
 	}
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "Hello World! (%s)", baseURL)
+		fmt.Fprintf(w, "Hello World!! (%s)", baseURL)
 	})
 
 	http.ListenAndServe(fmt.Sprintf(":%s", port), nil)
